@@ -1,0 +1,38 @@
+.l-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0 3em;
+    height: 5em;
+    color: white;
+    .header {
+        &-logo {
+            transition: 1.5s;
+            &:hover {
+                transform: rotateZ(2*360deg);
+                color: $theme-color - #033;
+            }
+            a {
+                padding: 2rem 1rem;
+            }
+        }
+        &-menu {
+            ul {
+                display: flex;
+                li {
+                    transition: 1.5s;
+                    display: inline-block;
+                    &:hover {
+                        transform: rotateX(2*360deg)
+                    }
+                    a {
+                        padding: 2rem 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

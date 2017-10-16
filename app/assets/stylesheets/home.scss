@@ -1,3 +1,42 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.l-home {
+  @include box-centering;
+  height: 100vh;
+  text-align: center;
+  background-color: $bg-color;
+  color: white;
+  .home {
+    &-box {
+      border-radius: 1em;
+      height: 300px;
+    }
+    &-heading {
+      font-size: 64px;
+      line-height: 1.5;
+    }
+    &-text {
+      font-size: 24px;
+      line-height: 1.5;
+    }
+    &-link {
+      display: inline-flex;
+      justify-content: space-around;
+      margin-top: 1.5em;
+      padding: 2em 3em;
+      width: 15em;
+      background-color: $theme-color;
+      border-bottom: 5px solid $theme-color - #333;
+      border-radius: 1em;
+      transition: .2s;
+      position: relative;
+      top: 0;
+      opacity: .6;
+      &:hover {
+        opacity: 1;
+      }
+      &:active {
+        border-bottom: 0px solid $theme-color - #333;
+        top: 5px;
+      }
+    }
+  }
+}
