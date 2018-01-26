@@ -1,0 +1,13 @@
+.main.posts-new
+  .container
+    %h1.form-heading 編集する
+    = form_tag("/posts/#{@post.id}/update",{multipart: true}) do
+      .form
+        .form-body
+          - @post.errors.full_messages.each do |message|
+            .form-error
+              = message
+          %textarea{:name => "content"}= @post.content
+          %p 画像添付
+          %input{:name => "image", :type => "file"}/
+          %input{:type => "submit", :value => "保存"}/

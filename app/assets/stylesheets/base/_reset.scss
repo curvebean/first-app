@@ -1,0 +1,104 @@
+html {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-rate;
+  font-weight: $base-font-weight;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: unset; // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+(min-resolusion: 2dppx) {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+body *,
+body *::before,
+body *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+}
+
+$headings: ( h1:3, h2:2, h3:1, h4:0, h5:0, h6:0, p: 0, );
+@each $heading-element,
+$heading-parameter in $headings {
+  #{$heading-element} {
+    font-size: power($heading-parameter, $base-rate);
+    font-weight: $base-font-weight;
+  }
+}
+
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: power(-1, $base_rate, em);
+}
+
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
+}
+
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+// Forms
+label {
+  display: inline-block;
+}
+
+button {
+  border-radius: 0;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid #999;
+  border-radius: 2px;
+}

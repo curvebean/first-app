@@ -1,0 +1,29 @@
+.main.talks-index
+  .container
+    %h1.form-heading TALK一覧
+    - @talks.each do |talk|
+      - if talk.send_user.id == @current_user.id
+        .talks-index-item.talks-send
+          - else
+            .talks-index-item.talks-sended
+              - if talk.send_user.id != @current_user.id
+                .talk-left
+                  %img{:src => "/user_images/#{talk.send_user.image_name}"}/
+                  %h6= talk.send_user.name
+              - if talk.send_user.id == @current_user.id
+                .talk-right-send
+                  - else
+                    .talk-right
+                      - if talk.image_name
+                        .talk-image
+                          %img{:src => "/talk_images/#{talk.image_name}"}/
+                      = talk.content
+                      %p
+                        = talk.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              .clear
+              = form_tag("/talks/#{params[:id]}/create",{multipart: true}) do
+                .talk-form
+                  .talk-form-body
+                    %textarea{:name => "content", :placeholder => "トーク"}
+                    %input{:name => "image", :type => "file"}/
+                    %input{:type => "submit", :value => "送信"}/

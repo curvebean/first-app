@@ -1,0 +1,11 @@
+.main.talks-index
+  .container
+    %h1.form-heading トーク一覧
+    - @talks.each do |talk|
+      .posts-index-item
+        .post-left
+          %img{:src => "/user_images/#{talk.send_user.image_name}"}/
+          .post-user-name
+            = link_to(talk.send_user.name, "/users/#{talk.send_user.id}")
+        .post-right
+          = talk.content

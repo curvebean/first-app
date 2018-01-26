@@ -1,0 +1,24 @@
+.main.user-show
+  .container
+    .user
+      - if @user.id == current_user.id
+        %a{:href => "/users/#{@user.id}/edit"}
+          %img{:src => "/user_images/#{@user.image_name}"}/
+        %h2= @user.name
+      - else
+        %img{:src => "/user_images/#{@user.image_name}"}/
+        %h2= @user.name
+    %ul.user-tabs
+      %li
+        = link_to("自分のFLIT", "/users/#{@user.id}")
+      %li.active
+        = link_to("いいね!", "/users/#{@user.id}/likes")
+    - @likes.each do |like|
+      - if post = Post.find_by(id: like.post_id)
+        .posts-index-item
+          .post-left
+            %img{:src => "/user_images/#{post.user.image_name}"}/
+          .post-right
+            .post-user-name
+              = link_to(post.user.name, "/users/#{post.user.id}")
+            = link_to(post.content, "/posts/#{post.id}")

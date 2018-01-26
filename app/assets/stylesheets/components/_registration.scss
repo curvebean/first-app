@@ -1,0 +1,60 @@
+.l-register {
+  @include box-centering;
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  min-height: calc( 100vh - 64px);
+  color: white;
+  font-size: 16px;
+  background: linear-gradient(-135deg, #DA81F5, #FA58D0);
+  h2 {
+    font-size: 42px;
+  }
+}
+
+.register {
+  &--mini-box {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 1em;
+    color: black;
+  }
+  &--main {
+    width: 50%;
+    h2 {
+      margin: 10px;
+    }
+    form {
+      background-color: white;
+      color: black;
+      padding: 5%;
+    }
+    label {
+      margin-bottom: power(-1);
+    }
+    input:not(.btn) {
+      padding: 0.6em;
+      width: 100%;
+    }
+    .field {
+      margin: 1em 0;
+    }
+  }
+  &--side-box {
+    width: 70%;
+  }
+  &--img {
+    &__first {
+      float: left;
+      width: 70%;
+      margin-right: 2em;
+    }
+    &__second {
+      width: 100%;
+      margin-right: 2em;
+    }
+  }
+}

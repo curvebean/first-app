@@ -1,0 +1,14 @@
+.main.posts-new
+  .container
+    %h1.form-heading 投稿する
+    = form_tag("/posts/create",{multipart: true}) do
+      .form
+        .form-body
+          - @post.errors.full_messages.each do |message|
+            .form-error
+              = message
+          %p 投稿
+          %textarea{:name => "content"}= @post.content
+          %p 画像添付
+          %input{:name => "image", :type => "file"}/
+          %input{:type => "submit", :value => "送信"}/

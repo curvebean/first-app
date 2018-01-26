@@ -1,0 +1,16 @@
+.main.users-index
+  .container
+    %h1.form-heading ユーザー一覧
+    - @users.each do |user|
+      .users-index-item
+        .user-left
+          %img{:src => "/user_images/#{user.image_name}"}/
+        .user-right
+          = link_to(user.name, "/users/#{user.id}")
+          - if Friend.find_by(
+          - from_id: current_user.id,to_id:user.id)
+            = link_to("/friends/#{user.id}/destroy",{method: "post"}) do
+              %span.fa.fa-address-book-o.fa-2x.friend
+          - else
+            = link_to("/friends/#{user.id}/create",{method: "post"}) do
+              %span.fa.fa-address-book-o.fa-2x.unfriend

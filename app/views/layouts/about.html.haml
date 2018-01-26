@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title CurveBean
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    
+    %link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")/
+  %body
+    %header.l-header
+      %h1.header-logo
+        %a(href="/") CurveBean
+      %nav.header-menu
+        %ul
+          %li
+            %a(href="/about")
+              %span.is-facebook F
+              %span.is-line L
+              %span.is-instagram I
+              %span.is-twitter T
+              とは
+          %li	
+            = link_to '新規登録', new_user_registration_path
+          %li	
+            = link_to 'ログイン', new_user_session_path
+    %p.is-notice 
+      = notice
+    %p.is-alert 
+      = alert
+    = yield
+    = render "layouts/footer"

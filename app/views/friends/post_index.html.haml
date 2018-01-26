@@ -1,0 +1,14 @@
+.main.posts-index
+  .container
+    %h1.form-heading タイムライン
+    - @friends.each do |friend|
+      .posts-index-item
+        .post-left
+          %img{:src => "/user_images/#{friend.user.image_name}"}/
+          .post-user-name
+            = link_to(friend.post.user.name, "/users/#{friend.user.id}")
+        .post-right
+          - if friend.post.image_name
+            .post-image
+              %img{:src => "/post_images/#{friend.post.image_name}"}/
+          = link_to(friend.post.content, "/posts/#{friend.post.id}")

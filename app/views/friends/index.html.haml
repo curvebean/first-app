@@ -1,0 +1,13 @@
+.main.users-index
+  .container
+    %h1.form-heading 友達一覧
+    - @friends.each do |friend|
+      .users-index-item
+        .user-left
+          %img{:src => "/user_images/#{friend.user.image_name}"}/
+        .user-right
+          = link_to(friend.user.name, "/users/#{friend.user.id}")
+          = link_to("/talks/#{friend.user.id}/show") do
+            %span.fa.fa-comments-o.fa-2x
+          = link_to("/friends/#{friend.user.id}/destroy",{method: "post"}) do
+            %span.fa.fa-address-book-o.fa-2x.friend

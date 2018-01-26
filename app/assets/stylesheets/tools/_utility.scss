@@ -1,0 +1,44 @@
+.is-twitter {
+  color: #2CA7E0;
+}
+
+.is-instagram {
+  color: #BB31A0;
+}
+
+.is-facebook {
+  color: #3B5998;
+}
+
+.is-line {
+  color: #00B900;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-submit {
+  padding: 1em 1.5em;
+  background-color: #3ecdc6;
+  border-radius: 2px;
+  float: right;
+  color: white;
+}
+
+.clear-fix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.is-notice,
+.is-alert {
+  display: none;
+}

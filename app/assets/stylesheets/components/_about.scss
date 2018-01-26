@@ -1,0 +1,49 @@
+.l-about {
+  min-height: 100vh;
+  padding: 200px 8% 0;
+  background: linear-gradient(45deg, #F8E0F1, #F781F3);
+  color: white;
+  font-weight: bold;
+  h2 {
+    font-size: 58px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.about {
+  &--mini-box {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 1em;
+    color: black;
+  }
+  &--main {
+    h2 {
+      text-align: center;
+    }
+    div::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+  &--side-box {
+    width: 70%;
+  }
+  &--img {
+    &__first {
+      float: left;
+      width: 70%;
+      margin-right: 2em;
+    }
+    &__second {
+      width: 100%;
+      margin-right: 2em;
+    }
+  }
+}

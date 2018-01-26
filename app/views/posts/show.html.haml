@@ -1,0 +1,21 @@
+.main.posts-show
+  .container
+    .posts-show-item
+      .post-user-name
+        %img{:src => "/user_images/#{@user.image_name}"}/
+        = link_to(@user.name, "/users/#{@user.id}")
+      %p
+        = @post.content
+      .post-time
+        = @post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      - if Like.find_by(user_id: @current_user.id, post_id: @post.id)
+        = link_to("/likes/#{@post.id}/destroy", {method: "post"}) do
+          %span.fa.fa-heart.like-btn-unlike
+      - else
+        = link_to("/likes/#{@post.id}/create", {method: "post"}) do
+          %span.fa.fa-heart.like-btn
+      = @likes_count
+      - if @post.user_id == @current_user.id
+        .post-menus
+          = link_to("編集", "/posts/#{@post.id}/edit")
+          = link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"})

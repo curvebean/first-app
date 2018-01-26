@@ -1,9 +1,18 @@
 %header.l-header
 	%h1.header-logo
-		%a(href="/") CurveBean
+		- if user_signed_in?
+			%a{href:"/posts/"}
+				%span.is-facebook F
+				%span.is-line L
+				%span.is-instagram I
+				%span.is-twitter T
+		- else
+			%a{href:"/"}CurveBean
 	%nav.header-menu
 		- if user_signed_in?
 			%ul
+				%li
+					= link_to current_user.user_name, "/users/#{current_user.id}"
 				%li	
 					= link_to "FLIT一覧", root_path
 				%li 
@@ -12,17 +21,8 @@
 					= link_to 'ログアウト', destroy_user_session_path, method: :delete
 		- else 
 			%ul
-				- if current_page?("/about") 
-					%li
-						%a(href="/about")
-							%span.is-facebook F
-							%span.is-line L
-							%span.is-instagram I
-							%span.is-twitter T
-							とは
-				- else
-					%li	
-						= link_to 'F L I T へ', about_path
+				%li	
+					= link_to 'F L I T へ', about_path
 				%li	
 					= link_to '新規登録', new_user_registration_path
 				%li	
